@@ -1,0 +1,68 @@
+#include <iostream>
+#include "clsString.h"
+using namespace std;
+
+int main() {
+
+    clsString str("hello world, this is c++!");
+
+ 
+    cout << "Words Count: " << str.CountWords() << endl;
+    cout << "Capital Letters Count: " << str.CountCapitalLetters() << endl;
+    cout << "Small Letters Count: " << str.CountSmallLetters() << endl;
+    cout << "Vowels Count: " << str.CountVowels() << endl;
+
+    
+    str.UpperAllString();
+    cout << "Upper: " << str.Value << endl;
+
+    str.LowerAllString();
+    cout << "Lower: " << str.Value << endl;
+
+    str.InvertAllLettersCase();
+    cout << "Invert Case: " << str.Value << endl;
+
+  
+    str.SetValue("hello world from cpp");
+    str.UpperFirstLetterOfEachWord();
+    cout << "Upper First Letter: " << str.Value << endl;
+
+    str.LowerFirstLetterOfEachWord();
+    cout << "Lower First Letter: " << str.Value << endl;
+
+    clsString str2("   too much spaces   ");
+    str2.TrimLeft();
+    cout << "Trim Left: '" << str2.Value << "'" << endl;
+
+    str2.SetValue("   too much spaces   ");
+    str2.TrimRight();
+    cout << "Trim Right: '" << str2.Value << "'" << endl;
+
+    str2.SetValue("   too much spaces   ");
+    str2.Trim();
+    cout << "Trim Both: '" << str2.Value << "'" << endl;
+
+
+    vector<string> words = str.SplitString(" ");
+    cout << "Split: ";
+    for (string& w : words) cout << "[" << w << "] ";
+    cout << endl;
+
+    cout << "Join: " << clsString::JoinString(words, "-") << endl;
+
+
+    clsString str3("cpp is fun to learn");
+    str3.ReverseWordsInString();
+    cout << "Reverse Words: " << str3.Value << endl;
+
+    
+    clsString str4("i love java, java is powerful");
+    str4.ReplaceWord("java", "c++");
+    cout << "Replace Word: " << str4.Value << endl;
+
+    clsString str5("hello!!! how, are; you?");
+    str5.RemovePunctuations();
+    cout << "Without Punctuations: " << str5.Value << endl;
+
+    return 0;
+}
